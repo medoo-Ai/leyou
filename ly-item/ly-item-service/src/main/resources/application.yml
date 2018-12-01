@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:   # 数据源
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka   #服务端地址
+  instance:
+    instance-id: ${spring.application.name}:${server.port}    #实例名字
+    lease-renewal-interval-in-seconds: 5    #5s  心跳
+    lease-expiration-duration-in-seconds: 10  #10s  过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1

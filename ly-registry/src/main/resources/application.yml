@@ -2,11 +2,11 @@ server:
   port: 10086
 spring:
   application:
-    name: ly-register
+    name: ly-registry
 eureka:
   client:
     service-url:
-      defaultZone: http:127.0.0.1:${server.port}/eureka  #url地址
+      defaultZone: http://127.0.0.1:${server.port}/eureka  #url地址
     fetch-registry: false       # 不拉取
     register-with-eureka: false    #  不注册
   server:

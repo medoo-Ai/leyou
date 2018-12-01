@@ -13,9 +13,10 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}  # eureka 服务的名字
 zuul:
-  strip-prefix: true
   prefix: /api
   retryable: true
+  routes:
+    item-service: /item/**   # item-service创建以后 、 添加路由规则
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)
   ReadTimeout: 2000 # 通信超时时间(ms)
